@@ -19,6 +19,7 @@ app.include_router(books.router, prefix="/books", tags=["Books"])
 app.include_router(reviews.router, prefix="/books", tags=["Reviews"])
 app.include_router(recommendations.router)
 app.include_router(summaries.router)
+app.include_router(books.router)
 
 @app.get("/")
 def root():
