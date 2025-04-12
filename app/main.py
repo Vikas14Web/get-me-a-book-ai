@@ -2,8 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api import books, reviews
 from app.utils.auth import get_current_user
+from fastapi import FastAPI
+from app.api import recommendations
 
-app = FastAPI(title="Book AI System")
+app = FastAPI(title="Get Me A Book AI System")
 
 app.add_middleware(
     CORSMiddleware,
@@ -15,6 +17,8 @@ app.add_middleware(
 
 app.include_router(books.router, prefix="/books", tags=["Books"])
 app.include_router(reviews.router, prefix="/books", tags=["Reviews"])
+app.include_router(recommendations.router)
+app.include_router(summaries.router)
 
 @app.get("/")
 def root():
