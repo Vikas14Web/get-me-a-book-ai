@@ -5,10 +5,10 @@ class BookCreate(BaseModel):
     title: str
     author: str
     genre: str
-    year_published: int
+    year_published: Optional[int]
     summary: Optional[str] = None
 
-class BookOut(BookCreate):
+class BookRead(BookCreate):
     id: int
 
     class Config:
